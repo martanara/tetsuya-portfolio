@@ -1,15 +1,25 @@
+@import './mixins.scss';
+
+// Variables
+// Colors
 $color-white: #fff;
 $color-black: #000000;
-$color-light-gray: #f6f8fd;
-$color-gray: #dddfe3;
-$color-dark-gray: #c0c2c7;
-$color-dark-blue: #283d7b;
-$color-baby-blue: #4dd2ef;
-$color-green: #74cb80;
-$color-hot-pink: #f43f85;
-$color-baby-pink: #f37bad;
-$color-warning: #de5d5d;
+$color-sand: #FCFBF9;
 
-$base-font-size: 15px;
+// Fonts
+$font-size: 13px;
+$font-color: #696969;
+$font-text: "Open Sans", sans-serif;
 
-$font-text: "Noto Sans", sans-serif;
+// Other
+$box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+
+// Page settings
+section {
+    padding: 64px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
