@@ -8,6 +8,7 @@ import Home from "pages/Home";
 import About from "pages/About";
 import Bands from "pages/Bands";
 import Blog from "pages/Blog";
+import News from "pages/News";
 
 interface RouterWrapperProps {
     children: JSX.Element;
@@ -60,6 +61,14 @@ const RoutesConfig = () => {
                         element={
                             <Layout>
                                 <Bands />
+                            </Layout>
+                        }
+                    />
+                    <Route
+                        path="/news"
+                        element={
+                            <Layout>
+                                <News />
                             </Layout>
                         }
                     />

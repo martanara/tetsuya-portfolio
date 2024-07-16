@@ -11,7 +11,7 @@ const Navbar = () => {
         <div className="navbar">
             <div className="container">
                 <div className="navbar-inner">
-                    <NavLink to="/">Tetsuya Nara</NavLink>
+                    <NavLink to="/">TETSUYA NARA</NavLink>
                     <ul>
                         <li>
                             <NavLink to="/">
@@ -31,6 +31,11 @@ const Navbar = () => {
                         <li>
                             <NavLink to="/bands">
                                 Bands
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/news">
+                                News
                             </NavLink>
                         </li>
                         <li>

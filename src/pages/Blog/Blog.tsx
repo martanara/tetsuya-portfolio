@@ -4,9 +4,9 @@ import "./styles.scss";
 
 const Blog = () => {
     return (
-        <div className="blog">
+        <section className="blog">
             <p>Welcome to blog</p>
-        </div>
+        </section>
     );
 };
 

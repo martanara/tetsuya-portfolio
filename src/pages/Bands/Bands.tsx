@@ -4,9 +4,9 @@ import "./styles.scss";
 
 const Bands = () => {
     return (
-        <div className="bands">
+        <section className="bands">
             <p>Welcome to bands</p>
-        </div>
+        </section>
     );
 };
 
