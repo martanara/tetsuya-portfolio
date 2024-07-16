@@ -2,8 +2,8 @@ import { createClient } from 'contentful';
 import { IBlogPost, IImage } from 'interfaces';
 
 const client = createClient({
-    space: '1fmg420j3339',
-    accessToken: 'h_istZ5KMgT4Oa5wnhrjCshbqVevMgYtlbgrNqiKhaQ',
+    space: process.env.REACT_APP_CONTENTFUL_SPACE_ID || '',
+    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN || '',
     host: "cdn.contentful.com"
 });
 
@@ -41,7 +41,6 @@ export const fetchBlogPosts = async (): Promise<IBlogPost[]> => {
         const response = await client.getEntries({
             content_type: 'blog'
         });
-        console.log(response.items)
         return response.items.map(item => ({
             id: item.sys.id,
             title: getStringField(item.fields.title),
