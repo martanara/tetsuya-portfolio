@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 
+import { fetchBlogPosts } from "services/contentfulService";
+import { IBlogPost } from "interfaces";
 import "./styles.scss";
-import { fetchBlogPosts } from "plugins/contentfulService";
 
 const Home = () => {
-    const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState<IBlogPost[]>([]);
 
     useEffect(() => {
         const getPosts = async () => {
             const blogPosts = await fetchBlogPosts();
-            console.log(blogPosts);
+            setPosts(blogPosts);
         };
         getPosts();
     }, []);
+
     return (
         <div className="home">
             <section>
@@ -27,7 +29,18 @@ const Home = () => {
             </section>
             <section>
                 <div className="container">
-                    Blog
+                    {posts.map((post) => (
+                        <div key={post.id}>
+                            <h2>{post.title}</h2>
+                            {post.image.url && (
+                                <img src={post.image.url} alt={post.image.title} style={{ maxWidth: '100%' }} />
+                            )}
+                            <p>{post.date}</p>
+                            {post.body.map((paragraph, index) => (
+                                <p key={index}>{paragraph}</p>
+                            ))}
+                        </div>
+                    ))}
                 </div>
             </section>
             <section>
