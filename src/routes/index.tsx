@@ -3,8 +3,11 @@ import React, { useLayoutEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 
 import Layout from "components/Layout/Layout";
-import Home from "pages/Home";
 import NotFound from "pages/NotFound";
+import Home from "pages/Home";
+import About from "pages/About";
+import Bands from "pages/Bands";
+import Blog from "pages/Blog";
 
 interface RouterWrapperProps {
     children: JSX.Element;
@@ -33,6 +36,30 @@ const RoutesConfig = () => {
                         element={
                             <Layout>
                                 <Home />
+                            </Layout>
+                        }
+                    />
+                    <Route
+                        path="/about"
+                        element={
+                            <Layout>
+                                <About />
+                            </Layout>
+                        }
+                    />
+                    <Route
+                        path="/blog"
+                        element={
+                            <Layout>
+                                <Blog />
+                            </Layout>
+                        }
+                    />
+                    <Route
+                        path="/bands"
+                        element={
+                            <Layout>
+                                <Bands />
                             </Layout>
                         }
                     />

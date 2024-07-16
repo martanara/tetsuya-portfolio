@@ -1,1 +1,21 @@
 @import "../../styles/settings.scss";
+
+.footer {
+    height: 88px;
+    width: 100%;
+    padding: 10px 0;
+    background-color: $color-black;
+    color: $color-white;
+    display: flex;
+    align-items: center;
+
+    .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    a {
+        color: $color-white;
+    }
+}
