@@ -1,20 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { fetchBlogPosts } from "services/contentfulService";
-import { IBlogPost } from "interfaces";
-import "./styles.scss";
+
+import { useAppContext } from "context";
 import Loader from "components/Loader";
 
-const Home = () => {
-    const [posts, setPosts] = useState<IBlogPost[]>([]);
+import "./styles.scss";
 
-    useEffect(() => {
-        const getPosts = async () => {
-            const blogPosts = await fetchBlogPosts();
-            setPosts(blogPosts);
-        };
-        getPosts();
-    }, []);
+const Home = () => {
+    const { posts } = useAppContext();
 
     if (posts.length === 0) {
         return <Loader />

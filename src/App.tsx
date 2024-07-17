@@ -1,11 +1,16 @@
 import React from "react";
 
 import RoutesConfig from "routes";
+
+import { AppContextProvider } from "context";
+
 import "./styles/global.scss";
 
 function App() {
     return (
-        <RoutesConfig />
+        <AppContextProvider>
+            <RoutesConfig />
+        </AppContextProvider>
     );
 }
 
