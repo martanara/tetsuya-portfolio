@@ -3,6 +3,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { fetchBlogPosts } from "services/contentfulService";
 import { IBlogPost } from "interfaces";
 import "./styles.scss";
+import Loader from "components/Loader";
 
 const Home = () => {
     const [posts, setPosts] = useState<IBlogPost[]>([]);
@@ -14,6 +15,10 @@ const Home = () => {
         };
         getPosts();
     }, []);
+
+    if (posts.length === 0) {
+        return <Loader />
+    }
 
     return (
         <div className="home">
