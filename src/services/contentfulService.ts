@@ -11,22 +11,6 @@ const getStringField = (field: any): string => {
     return typeof field === 'string' ? field : '';
 };
 
-const processBodyField = (bodyField: any): string[] => {
-    if (!bodyField || bodyField.nodeType !== 'document' || !Array.isArray(bodyField.content)) return [];
-
-    return bodyField.content.map((node: any) => {
-        if (node.nodeType === 'paragraph' && Array.isArray(node.content)) {
-            return node.content.map((contentNode: any) => {
-                if (contentNode.nodeType === 'text') {
-                    return contentNode.value;
-                }
-                return '';
-            }).join('');
-        }
-        return '';
-    });
-};
-
 const processImageField = (imageField: any): IImage => {
     if (!imageField || !imageField.fields) return { title: '', url: '' };
 
@@ -45,7 +29,7 @@ export const fetchBlogPosts = async (): Promise<IBlogPost[]> => {
             id: item.sys.id,
             title: getStringField(item.fields.title),
             date: getStringField(item.fields.date),
-            body: processBodyField(item.fields.body),
+            body: item.fields.body,
             image: processImageField(item.fields.image),
         }));
     } catch (error) {

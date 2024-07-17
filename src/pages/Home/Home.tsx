@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { fetchBlogPosts } from "services/contentfulService";
 import { IBlogPost } from "interfaces";
 import "./styles.scss";
@@ -36,9 +36,7 @@ const Home = () => {
                                 <img src={post.image.url} alt={post.image.title} style={{ maxWidth: '100%' }} />
                             )}
                             <p>{post.date}</p>
-                            {post.body.map((paragraph, index) => (
-                                <p key={index}>{paragraph}</p>
-                            ))}
+                            {documentToReactComponents(post.body)}
                         </div>
                     ))}
                 </div>

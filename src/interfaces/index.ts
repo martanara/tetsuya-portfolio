@@ -1,7 +1,7 @@
 export interface IBlogPost {
     id: string;
     title: string;
-    body: string[];
+    body: any;
     date: string;
     image: IImage;
 }
