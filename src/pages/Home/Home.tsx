@@ -3,6 +3,7 @@ import React from "react";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import { useAppContext } from "context";
+
 import Loader from "components/Loader";
 
 import "./styles.scss";

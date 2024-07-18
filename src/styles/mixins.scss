@@ -1,5 +1,4 @@
 // Media queries
-
 @mixin phone {
     @media (max-width: 767px) {
         @content;
@@ -22,4 +21,10 @@
     @media (min-width: 1024px) {
         @content;
     }
+}
+
+// Other
+
+@mixin transition {
+    transition: all 0.3s ease-in-out;;
 }

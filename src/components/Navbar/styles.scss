@@ -1,5 +1,19 @@
 @import "../../styles/settings.scss";
 
+ul.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+
+    li {
+        display: flex;
+        align-items: center;
+        border: none;
+    }
+}
+
 .navbar {
     height: 88px;
     width: 100%;
@@ -10,6 +24,11 @@
     color: $color-white;
     display: flex;
     align-items: center;
+    @include transition;
+
+    &.mobile {
+        top: 0;
+    }
 
     .navbar-inner {
         width: 100%;
@@ -23,14 +42,49 @@
         color: $color-white;
     }
 
-    ul {
-        display: flex;
-        list-style: none;
-        gap: 24px;
+    .nav-button {
+        cursor: pointer;
+    }
+}
 
-        li {
-            display: flex;
-            align-items: center;
-        }
+.mobile-nav-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    background-color: $color-black;
+    color: $color-white;
+    text-align: center;
+    padding: 32px 0;
+    @include transition;
+
+    &.open {
+        left: 0;
+    }
+
+    .menu-top {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+    }
+
+    .menu-inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    ul.nav-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    a {
+        text-decoration: none;
+        color: $color-white;
+    }
+
+    .nav-button {
+        cursor: pointer;
     }
 }
