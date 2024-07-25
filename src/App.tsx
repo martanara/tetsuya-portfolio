@@ -6,6 +6,8 @@ import { AppContextProvider } from "context";
 
 import "./styles/global.scss";
 
+import 'aos/dist/aos.css';
+
 function App() {
     return (
         <AppContextProvider>
