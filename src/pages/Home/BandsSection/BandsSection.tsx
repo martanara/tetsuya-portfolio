@@ -14,7 +14,7 @@ const BandsSection = () => {
     }, []);
 
     return (
-        <Section title="Projects">
+        <Section title="Projects" container>
             <div className="bands-wrapper">
                 <div className="band" data-aos="zoom-in">
                     <div className="icon-wrapper"><img className="icon" src={`${process.env.PUBLIC_URL}/icons/amp-icon.svg`} alt="amp" /></div>

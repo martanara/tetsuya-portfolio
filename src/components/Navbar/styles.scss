@@ -48,6 +48,11 @@ ul.nav-list {
     a {
         text-decoration: none;
         color: $color-white;
+        @include transition;
+
+        &:hover {
+            color: $font-color;
+        }
     }
 
     .nav-button {

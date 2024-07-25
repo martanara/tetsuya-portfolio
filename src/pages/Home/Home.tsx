@@ -1,29 +1,19 @@
 import React from "react";
 
-import { useAppContext } from "context";
-
-import Loader from "components/Loader";
-
-import "./styles.scss";
 import HeroBanner from "components/HeroBanner";
 import BandsSection from "./BandsSection";
+import AboutSection from "./AboutSection";
+import ContactSection from "./ContactSection";
+
+import "./styles.scss";
 
 const Home = () => {
-    const { posts } = useAppContext();
-
-    if (posts.length === 0) {
-        return <Loader />
-    }
-
     return (
         <div className="home">
             <HeroBanner mediaType="video" src={`${process.env.PUBLIC_URL}/homepage-hero.mp4`}/>
+            <AboutSection />
             <BandsSection />
-            <section>
-                <div className="container">
-                    Contact
-                </div>
-            </section>
+            <ContactSection />
         </div>
     );
 };
