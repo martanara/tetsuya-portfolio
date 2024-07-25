@@ -6,6 +6,7 @@ import { useAppContext } from "context";
 import Loader from "components/Loader";
 
 import "./styles.scss";
+import HeroBanner from "components/HeroBanner";
 
 const News = () => {
     const { posts } = useAppContext();
@@ -13,9 +14,10 @@ const News = () => {
     if (posts.length === 0) {
         return <Loader />
     }
-    
+
     return (
-        <>
+        <React.Fragment>
+            <HeroBanner mediaType="image" src={`${process.env.PUBLIC_URL}/images/hero-banner.JPG`} />
             <section className="News">
                 <p>Welcome to News</p>
             </section>
@@ -33,7 +35,7 @@ const News = () => {
                     ))}
                 </div>
             </section>
-        </>
+        </React.Fragment>
     );
 };
 

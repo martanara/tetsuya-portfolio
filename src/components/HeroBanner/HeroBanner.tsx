@@ -3,7 +3,7 @@ import React from 'react';
 import "./styles.scss";
 
 interface IHeroBannerProps {
-  mediaType: string;
+  mediaType: "video" | "image";
   src: string;
 }
 

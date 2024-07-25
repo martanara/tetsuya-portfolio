@@ -10,7 +10,7 @@ import "./styles.scss";
 const Home = () => {
     return (
         <div className="home">
-            <HeroBanner mediaType="video" src={`${process.env.PUBLIC_URL}/homepage-hero.mp4`}/>
+            <HeroBanner mediaType="video" src={`${process.env.PUBLIC_URL}/videos/homepage-hero.mp4`}/>
             <AboutSection />
             <BandsSection />
             <ContactSection />

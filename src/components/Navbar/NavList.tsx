@@ -1,6 +1,6 @@
-import React, { ReactHTML } from "react";
+import React, { useEffect, useState } from "react";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 
 import { FaInstagram } from "react-icons/fa";
 
@@ -11,13 +11,32 @@ interface INavListProps {
 }
 
 const NavList: React.FC<INavListProps> = ({ onClick }) => {
+	const [sectionId, setSectionId] = useState<string | null>(null);
+	const navigate = useNavigate();
+	const location = useLocation();
+
 	const handleScroll = (e: React.MouseEvent<HTMLElement>, sectionId: string) => {
-		e.preventDefault()
-		const section = document.getElementById(sectionId);
-		if (section) {
-			section.scrollIntoView({ behavior: 'smooth' });
+		e.preventDefault();
+		if (location.pathname !== '/') {
+			setSectionId(sectionId);
+			navigate('/');
+		} else {
+			const section = document.getElementById(sectionId);
+			if (section) {
+				section.scrollIntoView({ behavior: 'smooth' });
+			}
 		}
 	};
+
+	useEffect(() => {
+		if (sectionId) {
+			const section = document.getElementById(sectionId);
+			if (section) {
+				section.scrollIntoView({ behavior: 'smooth' });
+			}
+			setSectionId(null);
+		}
+	}, [sectionId, location]);
 
 	return (
 		<ul className="nav-list">
@@ -26,7 +45,7 @@ const NavList: React.FC<INavListProps> = ({ onClick }) => {
 					Home
 				</NavLink>
 			</li>
-	
+
 			<li>
 				<NavLink to="/bands" onClick={onClick}>
 					Bands
@@ -38,12 +57,12 @@ const NavList: React.FC<INavListProps> = ({ onClick }) => {
 				</NavLink>
 			</li>
 			<li>
-				<NavLink to="#" onClick={(e) => handleScroll(e, 'about-section')}>
+				<NavLink to="/" onClick={(e) => handleScroll(e, 'about-section')}>
 					About
 				</NavLink>
 			</li>
 			<li>
-				<NavLink to="#" onClick={(e) => handleScroll(e, 'contact-section')}>
+				<NavLink to="/" onClick={(e) => handleScroll(e, 'contact-section')}>
 					Contact
 				</NavLink>
 			</li>
