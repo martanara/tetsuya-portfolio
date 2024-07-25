@@ -1,42 +1,41 @@
 @import "../../../styles/settings.scss";
 
-.bands-section {
-    .bands-wrapper {
-        display: flex;
-        gap: 16px;
 
-        @include phone {
-            flex-direction: column;
+.bands-wrapper {
+    display: flex;
+    gap: 16px;
+
+    @include phone {
+        flex-direction: column;
+    }
+}
+
+.band {
+    background-color: $color-white;
+    border-radius: 16px 16px 16px 0;
+    padding: 24px;
+
+    .icon-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 68px;
+
+        .icon {
+            height: 48px;
+            width: 48px;
         }
     }
 
-    .band {
-        background-color: $color-white;
-        border-radius: 16px 16px 16px 0;
-        padding: 24px;
+    .band-photo {
+        height: 250px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 10px;
 
-        .icon-wrapper {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 68px;
-
-            .icon {
-                height: 48px;
-                width: 48px;
-            } 
-        } 
-        
-        .band-photo {
-            height: 250px;
-            width: 100%;
-            object-fit: cover;
+        img {
             border-radius: 10px;
-
-            img {
-                border-radius: 10px;
-            }
         }
     }
 }
