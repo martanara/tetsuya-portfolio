@@ -4,7 +4,6 @@ import { fetchBlogPosts } from "services/contentfulService";
 
 import { IBlogPost } from "interfaces";
 
-
 export const AppContext = createContext<any>(null);
 
 interface IContextProps {

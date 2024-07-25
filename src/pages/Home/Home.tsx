@@ -7,6 +7,7 @@ import { useAppContext } from "context";
 import Loader from "components/Loader";
 
 import "./styles.scss";
+import HeroBanner from "components/HeroBanner";
 
 const Home = () => {
     const { posts } = useAppContext();
@@ -17,6 +18,7 @@ const Home = () => {
 
     return (
         <div className="home">
+            <HeroBanner mediaType="video" src={`${process.env.PUBLIC_URL}/homepage-hero.mp4`}/>
             <section>
                 <div className="container">
                     Gallery
