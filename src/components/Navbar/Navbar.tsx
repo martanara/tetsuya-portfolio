@@ -10,10 +10,14 @@ import { VscClose } from "react-icons/vsc";
 import "./styles.scss";
 import NavList from "./NavList";
 
+const navbarHeight = 88;
+
 const Navbar = () => {
   const isMobile = useWindowSize();
 
   const [isOpen, setIsOpen] = useState<Boolean>(false);
+  const [scrolled, setScrolled] = useState(false);
+  
   const elementRef = useRef<HTMLDivElement | null>(null);
 
   const toggleIsOpen = useCallback((): void => {
@@ -40,11 +44,27 @@ const Navbar = () => {
     };
   }, [isOpen, toggleIsOpen]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > window.innerHeight - navbarHeight) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <div>
       {isMobile ? (
         <React.Fragment>
-          <div className="navbar mobile">
+          <div className={`navbar mobile ${scrolled ? 'scrolled' : ''}`}>
             <div className="container">
               <div className="navbar-inner">
                 <NavLink to="/" onClick={() => setIsOpen(false)}>TETSUYA NARA</NavLink>
@@ -62,17 +82,17 @@ const Navbar = () => {
                 </div>
               </div>
               <div className="menu-inner">
-                <NavList onClick={() =>  toggleIsOpen()}/>
+                <NavList onClick={() => toggleIsOpen()} />
               </div>
             </div>
           </div>
         </React.Fragment>
       ) : (
-        <div className="navbar">
+        <div className={`navbar ${scrolled ? 'scrolled' : ''}`}>
           <div className="container">
             <div className="navbar-inner">
               <NavLink to="/">TETSUYA NARA</NavLink>
-              <NavList onClick={() =>  toggleIsOpen()}/>
+              <NavList onClick={() => toggleIsOpen()} />
             </div>
           </div>
         </div>

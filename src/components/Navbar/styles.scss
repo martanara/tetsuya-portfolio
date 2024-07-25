@@ -16,18 +16,25 @@ ul.nav-list {
 
 .navbar {
     z-index: 2;
-    height: 88px;
+    height: $navbar-height;
     width: 100%;
     padding: 10px 0;
     position: fixed;
     top: 15px;
-    background-color: $color-black;
+    background-color: transparent;
     color: $color-white;
+    font-weight: 700;
+    font-size: 14px;
     display: flex;
     align-items: center;
     @include transition;
 
     &.mobile {
+        top: 0;
+    }
+
+    &.scrolled {
+        background-color: $color-black;
         top: 0;
     }
 
