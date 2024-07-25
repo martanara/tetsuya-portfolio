@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 
 import { NavLink } from "react-router-dom";
 
@@ -11,9 +11,34 @@ import "./styles.scss";
 import NavList from "./NavList";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState<Boolean>(false);
-
   const isMobile = useWindowSize();
+
+  const [isOpen, setIsOpen] = useState<Boolean>(false);
+  const elementRef = useRef<HTMLDivElement | null>(null);
+
+  const toggleIsOpen = useCallback((): void => {
+    setIsOpen(prevIsOpen => !prevIsOpen);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent): void => {
+      if (elementRef.current && !elementRef.current.contains(event.target as Node)) {
+        toggleIsOpen();
+      }
+    };
+
+    if (isOpen) {
+      setTimeout(() => {
+        document.addEventListener('click', handleClickOutside);
+      }, 0);
+    } else {
+      document.removeEventListener('click', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isOpen, toggleIsOpen]);
 
   return (
     <div>
@@ -22,22 +47,22 @@ const Navbar = () => {
           <div className="navbar mobile">
             <div className="container">
               <div className="navbar-inner">
-                <NavLink to="/">TETSUYA NARA</NavLink>
-                <div role="button" className="nav-button react-icon" onClick={() => setIsOpen(!isOpen)}>
+                <NavLink to="/" onClick={() => setIsOpen(false)}>TETSUYA NARA</NavLink>
+                <div role="button" className="nav-button react-icon" onClick={() => toggleIsOpen()}>
                   <HiOutlineBars3CenterLeft />
                 </div>
               </div>
             </div>
           </div>
-          <div className={`mobile-nav-menu ${isOpen ? 'open' : ''}`}>
+          <div className={`mobile-nav-menu ${isOpen ? 'open' : ''}`} ref={elementRef}>
             <div className="container">
               <div className="menu-top">
-                <div role="button" className="nav-button react-icon" onClick={() => setIsOpen(!isOpen)}>
-                <VscClose />
+                <div role="button" className="nav-button react-icon" onClick={() => toggleIsOpen()}>
+                  <VscClose />
                 </div>
               </div>
               <div className="menu-inner">
-                <NavList />
+                <NavList onClick={() =>  toggleIsOpen()}/>
               </div>
             </div>
           </div>
@@ -47,7 +72,7 @@ const Navbar = () => {
           <div className="container">
             <div className="navbar-inner">
               <NavLink to="/">TETSUYA NARA</NavLink>
-              <NavList />
+              <NavList onClick={() =>  toggleIsOpen()}/>
             </div>
           </div>
         </div>
