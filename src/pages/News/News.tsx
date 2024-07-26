@@ -17,7 +17,7 @@ const News = () => {
 
     return (
         <React.Fragment>
-            <HeroBanner mediaType="image" src={`${process.env.PUBLIC_URL}/images/hero-banner.JPG`} />
+            <HeroBanner mediaType="image" src={`${process.env.PUBLIC_URL}/images/hero-banner.JPG`} title="Latest news"/>
             <section className="News">
                 <p>Welcome to News</p>
             </section>

@@ -9,6 +9,7 @@
     margin-bottom: 32px;
 
     .hero-description {
+        z-index: 2;
         color: $color-white;
         position: absolute;
         top: 50%;
@@ -49,4 +50,27 @@
     height: 100%;
     object-fit: cover;
     transform: translate(-50%, -50%);
+}
+
+.down-arrow {
+    cursor: pointer;
+    position: absolute;
+    top: calc(50% + 68px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: jumpInfinite 2s infinite;
+}
+
+@keyframes jumpInfinite {
+    0% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: 15px;
+    }
+
+    100% {
+        margin-top: 0;
+    }
 }

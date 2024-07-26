@@ -5,7 +5,7 @@ import Section from "components/Section";
 
 const BandsSection = () => {
     return (
-        <Section title="Projects" container>
+        <Section title="Music" container>
             <div className="bands-wrapper">
                 <div className="band" data-aos="zoom-in">
                     <div className="icon-wrapper"><img className="icon" src={`${process.env.PUBLIC_URL}/icons/amp-icon.svg`} alt="amp" /></div>

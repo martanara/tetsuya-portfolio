@@ -41,10 +41,19 @@ const HeroBanner: React.FC<IHeroBannerProps> = ({ mediaType, src, title, linkTex
 export default HeroBanner;
 
 const HeroBannerDescription: React.FC<IHeroBannerDescriptionProps> = ({ title, linkText }) => {
+  const handleScrollDown = () => {
+    window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+  };
+
   return (
     <div className="hero-description">
       {title && (<div className="title"><h1>{title}</h1></div>)}
       {linkText && (<div className="hero-link "><a href="/">{linkText}</a></div>)}
+      {!linkText &&
+        (<div className="down-arrow" onClick={handleScrollDown}>
+          <img className="icon" src={`${process.env.PUBLIC_URL}/icons/arrow_circle_down-icon.svg`} alt="arrow down" />
+        </div>
+        )}
     </div>
   );
 };
