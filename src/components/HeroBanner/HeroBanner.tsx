@@ -4,11 +4,23 @@ import "./styles.scss";
 
 interface IHeroBannerProps {
   mediaType: "video" | "image";
-  src: string;
+  src?: string;
   title?: string;
+  linkText?: string;
 }
 
-const HeroBanner: React.FC<IHeroBannerProps> = ({ mediaType, src, title }) => {
+interface IHeroBannerDescriptionProps {
+  title?: string;
+  linkText?: string;
+}
+
+const HeroBanner: React.FC<IHeroBannerProps> = ({ mediaType, src, title, linkText }) => {
+  if (!src) return (
+    <div className="hero-banner">
+      {(title || linkText) && (<HeroBannerDescription title={title} linkText={linkText} />)}
+    </div>
+  );
+
   return (
     <div className={`hero-banner ${mediaType}`}>
       {mediaType === 'video' ? (
@@ -19,7 +31,7 @@ const HeroBanner: React.FC<IHeroBannerProps> = ({ mediaType, src, title }) => {
       ) : (
         <React.Fragment>
           <img src={src} alt="Hero Banner" className="hero-image" />
-          {title && (<h1>{title}</h1>)}
+          {(title || linkText) && (<HeroBannerDescription title={title} linkText={linkText} />)}
         </React.Fragment>
       )}
     </div>
@@ -27,3 +39,12 @@ const HeroBanner: React.FC<IHeroBannerProps> = ({ mediaType, src, title }) => {
 };
 
 export default HeroBanner;
+
+const HeroBannerDescription: React.FC<IHeroBannerDescriptionProps> = ({ title, linkText }) => {
+  return (
+    <div className="hero-description">
+      {title && (<div className="title"><h1>{title}</h1></div>)}
+      {linkText && (<div className="hero-link "><a href="/">{linkText}</a></div>)}
+    </div>
+  );
+};
