@@ -1,11 +1,9 @@
 @import "../../styles/settings.scss";
 
 .footer {
-    height: 88px;
     width: 100%;
-    padding: 10px 0;
-    background-color: $color-black;
-    color: $color-white;
+    padding-bottom: 32px;
+    color: $color-black;
     display: flex;
     align-items: center;
 
@@ -16,6 +14,6 @@
     }
 
     a {
-        color: $color-white;
+        color: $color-black;
     }
 }

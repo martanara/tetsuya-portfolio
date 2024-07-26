@@ -5,9 +5,7 @@ import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Layout from "components/Layout/Layout";
 import NotFound from "pages/NotFound";
 import Home from "pages/Home";
-import About from "pages/About";
-import Bands from "pages/Bands";
-import Blog from "pages/Blog";
+import Projects from "pages/Projects";
 import News from "pages/News";
 
 interface RouterWrapperProps {
@@ -41,26 +39,10 @@ const RoutesConfig = () => {
                         }
                     />
                     <Route
-                        path="/about"
+                        path="/projects"
                         element={
                             <Layout>
-                                <About />
-                            </Layout>
-                        }
-                    />
-                    <Route
-                        path="/blog"
-                        element={
-                            <Layout>
-                                <Blog />
-                            </Layout>
-                        }
-                    />
-                    <Route
-                        path="/bands"
-                        element={
-                            <Layout>
-                                <Bands />
+                                <Projects />
                             </Layout>
                         }
                     />

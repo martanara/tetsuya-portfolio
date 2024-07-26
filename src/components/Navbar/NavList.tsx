@@ -47,8 +47,8 @@ const NavList: React.FC<INavListProps> = ({ onClick }) => {
 			</li>
 
 			<li>
-				<NavLink to="/bands" onClick={onClick}>
-					Bands
+				<NavLink to="/projects" onClick={onClick}>
+					Projects
 				</NavLink>
 			</li>
 			<li>
