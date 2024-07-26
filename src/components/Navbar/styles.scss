@@ -15,7 +15,7 @@ ul.nav-list {
 }
 
 .navbar {
-    z-index: 2;
+    z-index: 3;
     height: $navbar-height;
     width: 100%;
     padding: 10px 0;
@@ -61,6 +61,7 @@ ul.nav-list {
 }
 
 .mobile-nav-menu {
+    z-index: 3;
     position: fixed;
     top: 0;
     left: -100%;

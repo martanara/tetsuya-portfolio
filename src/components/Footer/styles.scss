@@ -7,6 +7,10 @@
     display: flex;
     align-items: center;
 
+    @include tablet-down {
+        padding-bottom: 24px;
+    }
+
     .footer-inner {
         display: flex;
         justify-content: space-between;

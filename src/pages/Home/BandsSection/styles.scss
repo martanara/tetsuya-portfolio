@@ -35,6 +35,10 @@
         object-fit: cover;
         border-radius: 10px;
 
+        @include tablet-down {
+            height: 162px;
+        }
+
         img {
             border-radius: 10px;
         }

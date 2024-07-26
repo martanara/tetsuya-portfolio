@@ -18,6 +18,10 @@ $navbar-height: 88px;
 // Page settings
 section {
     padding: 32px 0;
+
+    @include tablet-down {
+        padding: 24px 0;
+    }
 }
 
 .container {

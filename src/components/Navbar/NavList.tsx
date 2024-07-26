@@ -7,7 +7,7 @@ import { FaInstagram } from "react-icons/fa";
 import "./styles.scss";
 
 interface INavListProps {
-	onClick: React.MouseEventHandler<HTMLAnchorElement> | undefined;
+	onClick: () => void;
 }
 
 const NavList: React.FC<INavListProps> = ({ onClick }) => {
@@ -26,6 +26,7 @@ const NavList: React.FC<INavListProps> = ({ onClick }) => {
 				section.scrollIntoView({ behavior: 'smooth' });
 			}
 		}
+		onClick();
 	};
 
 	useEffect(() => {

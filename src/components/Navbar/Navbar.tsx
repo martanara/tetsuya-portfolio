@@ -67,7 +67,7 @@ const Navbar = () => {
           <div className={`navbar mobile ${scrolled ? 'scrolled' : ''}`}>
             <div className="container">
               <div className="navbar-inner">
-                <NavLink to="/" onClick={() => setIsOpen(false)}>TETSUYA NARA</NavLink>
+                <NavLink to="/" onClick={() => toggleIsOpen()}>TETSUYA NARA</NavLink>
                 <div role="button" className="nav-button react-icon" onClick={() => toggleIsOpen()}>
                   <HiOutlineBars3CenterLeft />
                 </div>

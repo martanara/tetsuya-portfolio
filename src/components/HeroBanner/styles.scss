@@ -8,6 +8,10 @@
     background-color: $font-color;
     margin-bottom: 32px;
 
+    @include tablet-down {
+        margin-bottom: 24px;
+    }
+
     .hero-description {
         z-index: 2;
         color: $color-white;
