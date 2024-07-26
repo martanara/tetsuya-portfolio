@@ -1,18 +1,9 @@
-import React, { useEffect } from "react";
-
-import AOS from 'aos';
+import React from "react";
 
 import "./styles.scss";
 import Section from "components/Section";
 
 const BandsSection = () => {
-    useEffect(() => {
-        AOS.init({
-            duration: 1000,
-            once: false,
-        });
-    }, []);
-
     return (
         <Section title="Projects" container>
             <div className="bands-wrapper">

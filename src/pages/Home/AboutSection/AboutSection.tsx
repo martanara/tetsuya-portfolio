@@ -1,18 +1,9 @@
-import React, { useEffect } from "react";
-
-import AOS from 'aos';
+import React from "react";
 
 import "./styles.scss";
 import Section from "components/Section";
 
 const AboutSection = () => {
-    useEffect(() => {
-        AOS.init({
-            duration: 1000,
-            once: false,
-        });
-    }, []);
-
     return (
         <Section title="About" container id={'about-section'}>
             <div className="about-wrapper" data-aos="zoom-in">

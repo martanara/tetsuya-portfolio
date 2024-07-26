@@ -1,6 +1,4 @@
-import React, { ReactNode, useEffect } from "react";
-
-import AOS from 'aos';
+import React, { ReactNode } from "react";
 
 import "./styles.scss";
 interface ISectionProps {
@@ -11,13 +9,6 @@ interface ISectionProps {
 }
 
 const Section = (props: ISectionProps) => {
-    useEffect(() => {
-        AOS.init({
-            duration: 1000,
-            once: false,
-        });
-    }, []);
-
     return (
         <section id={props.id}>
             {props.title && (
