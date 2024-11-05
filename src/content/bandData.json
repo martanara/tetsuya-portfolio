@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "name": "Acid Sitter",
+        "description": "A modern jazz band with influences from classic bebop and fusion.",
+        "yearFormed": "2015",
+        "icon": "amp-icon.svg",
+        "photo": "acid-sitter.jpeg"
+    },
+    {
+        "id": "2",
+        "name": "Sour Noir",
+        "description": "A rock band inspired by the sounds of the '70s and '80s.",
+        "yearFormed": "2012",
+        "icon": "keyboard_music-icon.svg",
+        "photo": "sour-noir.jpg"
+    },
+    {
+        "id": "3",
+        "name": "Tumbling Walls",
+        "description": "A pop band inspired by the sounds of the '70s and '80s.",
+        "yearFormed": "2012",
+        "icon": "drum_set-icon.svg",
+        "photo": "tumbling-walls.jpg"
+    }
+]

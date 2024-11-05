@@ -1,5 +1,5 @@
 import { createClient } from 'contentful';
-import { IBlogPost, IImage } from 'interfaces';
+import { IBlogPost, IImage } from 'types/IBlogPost';
 
 const client = createClient({
     space: process.env.REACT_APP_CONTENTFUL_SPACE_ID || '',

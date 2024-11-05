@@ -2,7 +2,7 @@ import React, { createContext, ReactNode, useContext, useState, useEffect } from
 
 import { fetchBlogPosts } from "services/contentfulService";
 
-import { IBlogPost } from "interfaces";
+import { IBlogPost } from "types/IBlogPost";
 
 export const AppContext = createContext<any>(null);
 
