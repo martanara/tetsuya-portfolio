@@ -4,5 +4,6 @@ export interface IBandData {
     description: string;
     yearFormed: string; 
     icon: string; 
-    photo: string; 
+    photo: string;
+    slug: string  
 }

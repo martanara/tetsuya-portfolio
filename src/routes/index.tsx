@@ -7,6 +7,7 @@ import NotFound from "pages/NotFound";
 import Home from "pages/Home";
 import Music from "pages/Music";
 import News from "pages/News";
+import BandDetail from "pages/BandDetail";
 
 interface RouterWrapperProps {
     children: JSX.Element;
@@ -51,6 +52,14 @@ const RoutesConfig = () => {
                         element={
                             <Layout>
                                 <Music />
+                            </Layout>
+                        }
+                    />
+                    <Route
+                        path="/music/:slug"
+                        element={
+                            <Layout>
+                                <BandDetail />
                             </Layout>
                         }
                     />
