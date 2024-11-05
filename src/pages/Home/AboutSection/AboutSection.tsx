@@ -3,24 +3,21 @@ import React from "react";
 import "./styles.scss";
 import Section from "components/Section";
 
-const AboutSection = () => {
+import aboutData from "content/aboutData.json";
+import { IAboutData } from "types/IAboutData";
+
+const AboutSection: React.FC = () => {
+    const data = aboutData as IAboutData; // Cast the JSON import as IAboutData
+
     return (
         <Section title="About" container id={'about-section'}>
             <div className="about-wrapper" data-aos="zoom-in">
                 <div className="about-image">
-                    <img src={`${process.env.PUBLIC_URL}/images/about-tetsuya.jpg`} alt="tetsuya nara" />
+                    <img src={`${process.env.PUBLIC_URL}/images/${data.photo}`} alt={`${data.photo}`} />
                 </div>
                 <div className="about-text">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget nunc non velit sagittis pharetra. Nulla ut laoreet metus. Duis auctor semper elit, eu sagittis lectus euismod in.
-                        Nullam sagittis nisl id mauris tempus efficitur. Sed in nisi ultrices tortor vehicula lobortis. Praesent sodales, ante id dictum vestibulum, lectus diam viverra urna, vitae sollicitudin felis est non justo.
-                        Phasellus eleifend massa sit amet nisl congue, quis mollis elit malesuada. Phasellus arcu dolor, mollis sit amet auctor sit amet, rutrum ac mi.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget nunc non velit sagittis pharetra. Nulla ut laoreet metus. Duis auctor semper elit, eu sagittis lectus euismod in.
-                        Nullam sagittis nisl id mauris tempus efficitur. Sed in nisi ultrices tortor vehicula lobortis. Praesent sodales, ante id dictum vestibulum, lectus diam viverra urna, vitae sollicitudin felis est non justo.
-                        Phasellus eleifend massa sit amet nisl congue, quis mollis elit malesuada. Phasellus arcu dolor, mollis sit amet auctor sit amet, rutrum ac mi.
-                    </p>
+                    <p>{data.description1}</p>
+                    <p>{data.description2}</p>
                 </div>
             </div>
         </Section>
