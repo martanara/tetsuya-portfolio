@@ -1,9 +1,9 @@
 import React from "react";
 
 import HeroBanner from "components/HeroBanner";
-import BandsSection from "./BandsSection";
-import AboutSection from "./AboutSection";
-import ContactSection from "./ContactSection";
+import BandsSection from "sections/BandsSection";
+import AboutSection from "sections/AboutSection";
+import ContactSection from "sections/ContactSection";
 
 import "./styles.scss";
 

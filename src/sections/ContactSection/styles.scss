@@ -1,9 +1,9 @@
-@import "../../../styles/settings.scss";
+@import "../../styles/settings.scss";
 
 .contact-wrapper {
     width: 100%;
     height: 500px;
-    background-image: url("../../../../public/images/contact.jpg");
+    background-image: url("../../../public/images/contact.jpg");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
