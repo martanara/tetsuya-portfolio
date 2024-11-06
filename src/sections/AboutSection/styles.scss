@@ -2,16 +2,16 @@
 
 .about-wrapper {
     display: flex;
-    gap: 24px;
+    gap: $common-spacing;
     background-color: $color-white;
-    border-radius: 16px 16px 16px 0;
-    padding: 24px;
+    border-radius: $border-radius-2;
+    padding: $common-spacing;
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
 
     .about-image {
         height: 400px;
         width: 30%;
-        border-radius: 10px;
+        border-radius: $border-radius-1;
 
         @include tablet-down {
             height: 300px;
@@ -22,7 +22,7 @@
             object-fit: cover;
             height: 100%;
             width: 100%;
-            border-radius: 10px;
+            border-radius: $border-radius-1;
         }
     }
 

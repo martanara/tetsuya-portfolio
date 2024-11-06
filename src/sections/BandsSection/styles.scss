@@ -12,8 +12,8 @@
 .band {
     flex: 1;
     background-color: $color-white;
-    border-radius: 16px 16px 16px 0;
-    padding: 24px;
+    border-radius: $border-radius-2;
+    padding: $common-spacing;
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
     text-decoration: none;
     @include transition;
@@ -42,14 +42,14 @@
     }
 
     .text {
-        padding: 24px 0;
+        padding: $common-spacing 0;
     }
 
     .band-photo {
         height: 250px;
         width: 100%;
         object-fit: cover;
-        border-radius: 10px;
+        border-radius: $border-radius-1;
 
         @include tablet-down {
             height: 162px;

@@ -4,6 +4,6 @@
     margin-bottom: 32px;
 
     @include tablet-down {
-        margin-bottom: 24px;
+        margin-bottom: $common-spacing;
     }
 }

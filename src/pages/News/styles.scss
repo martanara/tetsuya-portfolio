@@ -3,13 +3,14 @@
 .news-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: $common-spacing;
 
     .news {
         display: flex;
         flex-direction: column;
         background-color: $color-white;
-        padding: 24px;
+        padding: $common-spacing;
+        border-radius: $border-radius-2;
 
         &-header {
             margin-bottom: 16px;
@@ -17,7 +18,7 @@
 
         &-body {
             display: flex;
-            gap: 24px;
+            gap: $common-spacing;
 
             @include phone {
                 flex-direction: column;

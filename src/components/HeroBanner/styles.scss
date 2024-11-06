@@ -9,7 +9,7 @@
     margin-bottom: 32px;
 
     @include tablet-down {
-        margin-bottom: 24px;
+        margin-bottom: $common-spacing;
     }
 
     .hero-description {
@@ -25,12 +25,12 @@
             margin-top: 32px;
 
             a {
-                padding: 12px 24px;
+                padding: 12px $common-spacing;
                 border: 1px $color-white solid;
                 background-color: transparent;
                 color: $color-white;
                 text-decoration: none;
-                border-radius: 10px;
+                border-radius: $border-radius-1;
                 @include transition;
 
                 &:hover {
