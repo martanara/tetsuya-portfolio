@@ -1,1 +1,37 @@
 @import "../../styles/settings.scss";
+
+.news-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .news {
+        display: flex;
+        flex-direction: column;
+        background-color: $color-white;
+        padding: 24px;
+
+        &-header {
+            margin-bottom: 16px;
+        }
+
+        &-body {
+            display: flex;
+            gap: 24px;
+
+            @include phone {
+                flex-direction: column;
+            }
+
+            img {
+                height: 220px;
+                width: 410px;
+                object-fit: cover;
+
+                @include phone {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

@@ -42,16 +42,26 @@ const News = () => {
             />
             <section>
                 <div className="container">
-                    {currentPosts.map((newsPost) => (
-                        <div key={newsPost.id}>
-                            <h2>{newsPost.title}</h2>
-                            {newsPost.image.url && (
-                                <img src={newsPost.image.url} alt={newsPost.image.title} />
-                            )}
-                            <p>{newsPost.date}</p>
-                            {documentToReactComponents(newsPost.body)}
-                        </div>
-                    ))}
+                    <div className="news-wrapper">
+                        {currentPosts.map((newsPost) => (
+                            <div key={newsPost.id} className="news">
+                                <div className="news-header">
+                                    <h3>{newsPost.date}</h3>
+                                    <h2>{newsPost.title}</h2>
+                                </div>
+                                <div className="news-body">
+                                    {newsPost.image.url && (
+                                        <div className="image-wrapper">
+                                            <img src={newsPost.image.url} alt={newsPost.image.title} />
+                                        </div>
+                                    )}
+                                    <div className="text-wrapper">
+                                        {documentToReactComponents(newsPost.body)}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
                 <Pagination
                     currentPage={currentPage}
