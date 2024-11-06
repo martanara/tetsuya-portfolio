@@ -11,14 +11,14 @@ const BandsSection = () => {
         <Section title="Music" container>
             <div className="bands-wrapper">
                 {bandData.map((band: IBandData) => (
-                    <div key={band.id} className="band" data-aos="zoom-in">
+                    <a href={`/music/${band.slug}`} key={band.id} className="band" data-aos="zoom-in">
                         <div className="icon-wrapper"><img className="icon" src={`${process.env.PUBLIC_URL}/icons/${band.icon}`} alt="amp" /></div>
-                        <h3 className="title">{band.name}</h3>
+                        <div className="title"><h3>{band.name}</h3></div>
                         <div className="text">
                             <p>{band.description}</p>
                             <img className="band-photo" src={`${process.env.PUBLIC_URL}/images/${band.photo}`} alt="acid-sitter" />
                         </div>
-                    </div>
+                    </a>
                 ))}
             </div>
         </Section>

@@ -9,28 +9,25 @@ import "./styles.scss";
 import HeroBanner from "components/HeroBanner";
 
 const News = () => {
-    const { posts } = useAppContext();
+    const { newsPosts } = useAppContext();
 
-    if (posts.length === 0) {
+    if (newsPosts.length === 0) {
         return <Loader />
     }
 
     return (
         <React.Fragment>
             <HeroBanner mediaType="image" src={`${process.env.PUBLIC_URL}/images/hero-banner.JPG`} title="Latest news"/>
-            <section className="News">
-                <p>Welcome to News</p>
-            </section>
             <section>
                 <div className="container">
-                    {posts.map((post) => (
-                        <div key={post.id}>
-                            <h2>{post.title}</h2>
-                            {post.image.url && (
-                                <img src={post.image.url} alt={post.image.title} style={{ maxWidth: '100%' }} />
+                    {newsPosts.map((newsPost) => (
+                        <div key={newsPost.id}>
+                            <h2>{newsPost.title}</h2>
+                            {newsPost.image.url && (
+                                <img src={newsPost.image.url} alt={newsPost.image.title} />
                             )}
-                            <p>{post.date}</p>
-                            {documentToReactComponents(post.body)}
+                            <p>{newsPost.date}</p>
+                            {documentToReactComponents(newsPost.body)}
                         </div>
                     ))}
                 </div>

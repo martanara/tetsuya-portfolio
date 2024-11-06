@@ -1,5 +1,6 @@
 import { createClient } from 'contentful';
-import { IBlogPost, IImage } from 'types/IBlogPost';
+
+import { INewsPost, IImage } from 'types/INewsPost';
 
 const client = createClient({
     space: process.env.REACT_APP_CONTENTFUL_SPACE_ID || '',
@@ -20,10 +21,10 @@ const processImageField = (imageField: any): IImage => {
     return { title, url };
 };
 
-export const fetchBlogPosts = async (): Promise<IBlogPost[]> => {
+export const fetchNewsPosts = async (): Promise<INewsPost[]> => {
     try {
         const response = await client.getEntries({
-            content_type: 'blog'
+            content_type: 'news'
         });
         return response.items.map(item => ({
             id: item.sys.id,
@@ -33,7 +34,7 @@ export const fetchBlogPosts = async (): Promise<IBlogPost[]> => {
             image: processImageField(item.fields.image),
         }));
     } catch (error) {
-        console.error('Error fetching blog posts:', error);
+        console.error('Error fetching news posts:', error);
         return [];
     }
 };

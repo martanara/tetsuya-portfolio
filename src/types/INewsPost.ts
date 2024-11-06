@@ -1,4 +1,4 @@
-export interface IBlogPost {
+export interface INewsPost {
     id: string;
     title: string;
     body: any;

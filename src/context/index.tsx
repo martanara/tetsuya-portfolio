@@ -1,8 +1,8 @@
 import React, { createContext, ReactNode, useContext, useState, useEffect } from "react";
 
-import { fetchBlogPosts } from "services/contentfulService";
+import { fetchNewsPosts } from "services/contentfulService";
 
-import { IBlogPost } from "types/IBlogPost";
+import { INewsPost } from "types/INewsPost";
 
 export const AppContext = createContext<any>(null);
 
@@ -13,12 +13,12 @@ interface IContextProps {
 export const AppContextProvider = (props: IContextProps) => {
     const { children } = props;
 
-    const [posts, setPosts] = useState<IBlogPost[]>([]);
+    const [newsPosts, setNewsPosts] = useState<INewsPost[]>([]);
 
     useEffect(() => {
         const getPosts = async () => {
-            const blogPosts = await fetchBlogPosts();
-            setPosts(blogPosts);
+            const _newsPosts = await fetchNewsPosts();
+            setNewsPosts(_newsPosts);
         };
         getPosts();
     }, []);
@@ -26,7 +26,7 @@ export const AppContextProvider = (props: IContextProps) => {
     return (
         <AppContext.Provider
             value={{
-                posts,
+                newsPosts,
             }}
         >
             {children}
@@ -35,13 +35,13 @@ export const AppContextProvider = (props: IContextProps) => {
 };
 
 export const useAppContext = (): IProps => {
-    const { posts } = useContext(AppContext);
+    const { newsPosts } = useContext(AppContext);
 
     return {
-        posts,
+        newsPosts,
     };
 };
 
 interface IProps {
-    posts: IBlogPost[];
+    newsPosts: INewsPost[];
 }

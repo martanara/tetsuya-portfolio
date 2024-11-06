@@ -1,6 +1,5 @@
 @import "../../styles/settings.scss";
 
-
 .bands-wrapper {
     display: flex;
     gap: 16px;
@@ -11,10 +10,13 @@
 }
 
 .band {
+    flex: 1;
     background-color: $color-white;
     border-radius: 16px 16px 16px 0;
     padding: 24px;
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    @include transition;
 
     .icon-wrapper {
         width: 100%;
@@ -29,6 +31,20 @@
         }
     }
 
+    .title {
+        display: flex;
+        align-items: center;
+        height: 40px;
+    }
+
+    h3 {
+        @include transition;
+    }
+
+    .text {
+        padding: 24px 0;
+    }
+
     .band-photo {
         height: 250px;
         width: 100%;
@@ -38,9 +54,18 @@
         @include tablet-down {
             height: 162px;
         }
+    }
 
-        img {
-            border-radius: 10px;
+    &:hover {
+        box-shadow: 4px 4px 12px rgba(255, 182, 193, 0.5);
+
+        h3 {
+            font-size: 20px;
+            text-decoration: underline;
+        }
+
+        .band-photo {
+            transform: scale(1.1);
         }
     }
 }
