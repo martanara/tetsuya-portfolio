@@ -1,1 +1,10 @@
 @import "../../styles/settings.scss";
+
+.band-details {
+    display: flex;
+    flex-direction: column;
+    border-radius: $border-radius-1;
+    padding: 24px;
+    width: 100%;
+    background-color: $color-white;
+}
