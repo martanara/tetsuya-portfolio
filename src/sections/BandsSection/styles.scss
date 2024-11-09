@@ -1,7 +1,15 @@
 @import "../../styles/settings.scss";
 
+
 .bands-wrapper {
     display: flex;
+    flex-direction: column;
+    gap: $common-spacing;
+}
+
+.band-row {
+    display: flex;
+    flex-wrap: wrap;
     gap: 16px;
 
     @include phone {
@@ -10,13 +18,17 @@
 }
 
 .band {
-    flex: 1;
+    flex: 1 1 calc(33.33% - 16px);
     background-color: $color-white;
     border-radius: $border-radius-2;
-    padding: $common-spacing;
+    padding: 16px;
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
     text-decoration: none;
     @include transition;
+
+    @include phone {
+        width: 100%;
+    }
 
     .icon-wrapper {
         width: 100%;
@@ -35,14 +47,19 @@
         display: flex;
         align-items: center;
         height: 40px;
-    }
 
-    h3 {
-        @include transition;
-    }
+        h3 {
+            @include transition;
+        }
 
-    .text {
-        padding: $common-spacing 0;
+        &:hover {
+            h3 {
+                font-size: 22px;
+                color: $color-purple;
+                text-decoration: underline;
+                text-decoration-color: $color-purple;
+            }
+        }
     }
 
     .band-photo {
@@ -50,22 +67,5 @@
         width: 100%;
         object-fit: cover;
         border-radius: $border-radius-1;
-
-        @include tablet-down {
-            height: 162px;
-        }
-    }
-
-    &:hover {
-        box-shadow: 4px 4px 12px rgba(255, 182, 193, 0.5);
-
-        h3 {
-            font-size: 20px;
-            text-decoration: underline;
-        }
-
-        .band-photo {
-            transform: scale(1.1);
-        }
     }
 }
